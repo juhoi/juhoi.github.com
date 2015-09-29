@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>[번역] Introduction to Node.js Streams |  Juhoi's Haroopress</title>
+    <meta name="description" content="My Blog, I love programming">
+    <meta name="author" content="Juhoi Kim">
+    <meta name="keywords" content="JavaScript,Node.js,Meteor" />
+    <meta name="generator" content="haroopress v0.9.2" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link href="/rss.xml" rel="alternate" title="Juhoi's Haroopress" type="application/rss+xml">
+
+    <!-- Le styles -->
+    <link rel="canonical" href="http://juhoi.github.io">
+
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="/css/font-awesome.css" rel="stylesheet">
+    <link href="/css/markdown.css" rel="stylesheet">
+    <link href="/css/haroopress.css" rel="stylesheet">
+    <link href="/css/theme.css" rel="stylesheet">
+    <link href="/css/code/default.css" rel="stylesheet">
+    
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="72x72" href="/favicon-64.png">
+
+    <!-- Le javascript -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.jsonp.js"></script>
+    <script src="/js/mustache.js"></script>
+    <script src="/js/apps/github.js"></script>
+    <script src="/js/apps/twitter.js"></script>
+</head>
+<body data-spy="scroll" data-target=".subnav" data-offset="50">
+
+        <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+
+          <a class="pull-right" href="/rss.xml"><span class="icon-rss"></span></a>
+          
+            <a class="pull-right" href="http://twitter.com/ByJuhoi" target="_blank"><span class="icon-twitter"></span></a>
+          
+
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li>
+                <a href="/">Home</a>
+              </li>
+              <li>
+                <a href="/archives">Archives</a>
+              </li>
+              <li>
+                <a href="/category">Categories</a>
+              </li>
+              <li>
+                <a href="/about">About</a>
+              </li>
+              <!--li>
+                <a href="/slides">Slides</a>
+              </li-->
+                
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+<link href="/css/code/default.css" rel="stylesheet">
+<div class="container page-archive">
+    <div class="row">
+        <div class="span9">
+            <div class="row">
+                <div class="span9">
+                    <div class="well bg">
+                        
+                        <div class="page-header">
+                            <h1>[번역] Introduction to Node.js Streams</h1>
+                            <span class="pull-right">Thursday, December 13 2012 5:22 AM</span>
+                        </div>
+
+                        <div class="pull-right social-area">
+                                                
+                            <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en" data-text="[번역] Introduction to Node.js Streams -" data-url="http://juhoi.github.io/post/번역]-introduction-to-node-dot-j-s-streams" data-via="ByJuhoi">Tweet</a>
+                            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                    
+                                                
+
+                            
+        <div class="fb-like" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false" data-font="arial" data-href="http://juhoi.github.io/post/번역]-introduction-to-node-dot-j-s-streams"></div>
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/ko_KR/all.js#xfbml=1&appId=246177242115486";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
+                        </div>
+
+                        <div class="markdown-wrapper">
+                            <p><em class="label label-info"><strong><i class="icon-info-sign icon-white"></i> 원문</strong></em>  <a href="http://sitepoint.com/">sitepoint.com</a>의 <strong><a href="http://sitepoint.com/introduction-to-streams/">Introduction to Node.js Streams(http://sitepoint.com/introduction-to-streams/)</a></strong></p><p><strong>오역 주의</strong> - 번역도 하다보면 나아질런지... :-)</p>
+<h2 id="toc_49">Introduction to Node.js Streams</h2>
+<p>확장성. 빅데이터. 실시간... 이것들은 최근 인터넷이 직면한 몇가지 도전 과제들이다. 또한 이것은 Node.js와 Node.js의 넌블럭킹(non-blocking) I/O 모델이 나오게 된 배경이라고도 할 수 있다.
+이 글에서는 Node의 데이터 집약적인 컴퓨팅을 위한 가장 강력한 API들 중 하나인 스트림(streams)에 대해서 소개할 것이다.</p>
+<h3 id="toc_50">Why Use Streams?</h3>
+<p>다음 예제를 생각해 보자:</p><pre><code class="javascript">var http = require(<span class="string">'http'</span>)
+   , fs = require(<span class="string">'fs'</span>)
+   ;
+var server = <span class="transposed_variable">http.</span>createServer(<span class="function"><span class="keyword">function</span> <span class="params">(req, res)</span> {</span>
+  <span class="transposed_variable">fs.</span>readFile(__dirname + <span class="string">'/data.txt'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(err, data)</span> {</span>
+    <span class="transposed_variable">res.</span><span class="keyword">end</span>(data);
+  });
+});
+<span class="transposed_variable">server.</span>listen(<span class="number">8000</span>);
+</code></pre><p>이 코드는 완벽하게 실행된다. 한가지 사실을 제외한다면 전혀 잘못된 점이 없다. 그것은 클라이언트에게 데이터를 보내기 전 data.txt 파일 내용 전체를 버퍼링한다는 것이다. 애플리케이션에 클라이언트의 요청이 증가하면 많은 메모리를 사용하게 되고 또한 지연시간이 증가하게 되어 클라이언트는 서버 애플리케이션에서 전체 파일을 읽을때까지 기다려야만 한다.</p><p>다른 예제를 보도록 하자:</p><pre><code class="javascript"><span class="keyword">var</span> http = <span class="keyword">require</span>(<span class="string">'http'</span>)
+  , fs = <span class="keyword">require</span>(<span class="string">'fs'</span>)
+  ;
+<span class="keyword">var</span> server = http.createServer(<span class="function"><span class="keyword">function</span> <span class="params">(req, res)</span> {</span>
+  <span class="keyword">var</span> stream = fs.createReadStream(__dirname + <span class="string">'/data.txt'</span>);
+  stream.pipe(res);
+});
+server.listen(<span class="number">8000</span>);
+</code></pre><p>여기에서는 확장성에 대한 이슈를 극복하기 위해 스트림 API를 사용한다. 스트림 객체를 사용함으로써 data.txt 파일을 클라이언트에게 보낼때 서버 버퍼링이나 클라이언트의 대기시간 없이 디스크에서 읽어서 바로 한번에 하나의 청크(chunk, 데이터 단위)를 전송하는 것을 보장한다.</p>
+<h3 id="toc_51">What are Streams?</h3>
+<p>스트림이란 데이터의 입, 출력 시 비동기적으로 처리될 수 있는 데이터의 연속된 흐름이라고 정의할 수 있다. Node.js에서는 스트림을 읽을(readable) 수도 있고 쓸(writable) 수도 있다. readable stream(읽기용 스트림)은 데이터 청크가 도착할 때마다 <code>data</code> 이벤트를 발생시키는 EventEmitter 객체이다. 바로 이전 예제에서는 HTTP 클라이언트에게 파일의 내용을 pipe 하기 위해 readable stream이 사용됐다. 스트림이 파일의 끝에 닿으면 더이상 <code>data</code> 이벤트가 발생하지 않는다는 것을 알려주는 <code>end</code> 이벤트를 발생시킨다. 또한 readable stream은 잠시 중지시키거나 재시작 시킬 수 있다.</p><p>반면 writable stream(쓰기용 스트림)은 데이터의 스트림을 받는다. 이것 역시 EventEmitter 객체를 상속하고 write() 와 end() 메소드 두가지를 구현하고 있다. 첫번째 메소드는 버퍼에 데이터를 쓰는 것으로 데이터가 정확하게 쓰여져 메모리가 비워지면(flush) true를 반환하고 만약 버퍼가 꽉 차게 되면 false를 반환하게 된다(이번 경우는 데이터가 늦게 전송될 것이다). end() 메소드는 단순히 스트림이 끝났다는 것을 나타낸다.</p>
+<h3 id="toc_52">Your First Streams Application</h3>
+<p>그럼 스트림에 대해서 자세히 살펴보자. 그러기 위해서 우리는 간단한 파일 업로드 프로그램을 만들어 볼 것이다. 우선 readable stream을 사용하여 파일을 읽고 특정 목적지에 데이터를 pipe 시킬 클라이언트를 만들어야 한다. pipe의 반대편 끝에는 writable stream을 사용하여 업로드된 데이터를 저장하는 서버를 구현할 것이다.</p><p>클라이언트부터 시작해 보자. 우선 HTTP 및 file 시스템 모듈을 임포트하여 시작한다.</p><pre><code class="javascript"><span class="keyword">var</span> http = <span class="keyword">require</span>(<span class="string">'http'</span>)
+  , fs = <span class="keyword">require</span>(<span class="string">'fs'</span>);
+</code></pre><p>그리고 HTTP 요청(request)을 정의한다.</p><pre><code class="javascript">var options = <span class="cell">{
+  host: <span class="string">'localhost'</span>
+  , port: <span class="number">8000</span>
+  , path: <span class="string">'/'</span>
+  , method: <span class="string">'POST'</span>
+}</span>;
+var req = <span class="transposed_variable">http.</span>request(options, <span class="function"><span class="keyword">function</span><span class="params">(res)</span> {</span>
+  <span class="transposed_variable">console.</span><span class="built_in">log</span>(<span class="transposed_variable">res.</span>statusCode);
+});
+</code></pre><p>이제 파일을 읽을 readable stream을 생성하고 request 객체에 파일 내용을 pipe 한다.</p><pre><code class="javascript">var readStream = fs<span class="preprocessor">.ReadStream</span>(__dirname + <span class="string">"/in.txt"</span>)<span class="comment">;</span>
+readStream<span class="preprocessor">.pipe</span>(req)<span class="comment">;</span>
+</code></pre><p>모든 데이터를 읽어서 스트림이 끝나면 서버와의 연결을 끊고 request의 end() 메소드를 호출한다.</p><pre><code class="javascript"><span class="transposed_variable">readStream.</span>on(<span class="string">'close'</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+  <span class="transposed_variable">req.</span><span class="keyword">end</span>();
+  <span class="transposed_variable">console.</span>log(<span class="string">"I finished."</span>);
+});
+</code></pre>
+<h3 id="toc_53">The Server</h3>
+<p>클라이언트에서 했던 것처럼 Node.js 모듈을 임포트하는 것으로 시작한다. 그리고, 텍스트 파일에 데이터를 저장할 새로운 writable stream을 생성한다.</p><pre><code class="javascript"><span class="keyword">var</span> http = <span class="keyword">require</span>(<span class="string">'http'</span>)
+  , fs = <span class="keyword">require</span>(<span class="string">'fs'</span>);
+<span class="keyword">var</span> writeStream = fs.createWriteStream(__dirname + <span class="string">"/out.txt"</span>);
+</code></pre><p>클라이언트에서 파일을 업로드할 수 있도록 새로운 웹서버 객체를 생성한다. request 객체로부터 데이터를 받으면 서버는 스트림을 호출하여 버퍼의 내용을 출력 파일로 쓰게 된다.</p><pre><code class="javascript">var server = <span class="transposed_variable">http.</span>createServer(<span class="function"><span class="keyword">function</span> <span class="params">(req, res)</span> {</span>
+  <span class="transposed_variable">req.</span>on(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(data)</span> {</span>
+    <span class="transposed_variable">writeStream.</span>write(data);
+  });
+  <span class="transposed_variable">req.</span>on(<span class="string">'end'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+    <span class="transposed_variable">writeStream.</span><span class="keyword">end</span>();
+    <span class="transposed_variable">res.</span>statusCode = <span class="number">200</span>;
+    <span class="transposed_variable">res.</span><span class="keyword">end</span>(<span class="string">"OK"</span>);
+  });
+});
+<span class="transposed_variable">server.</span>listen(<span class="number">8000</span>);
+</code></pre><p>createServer() 에서 반환되는 req 객체와 res 객체가 각각 readable stream과 writable stream이라는 것을 주목하기 바란다. 우리는 <code>data</code> 이벤트를 리스닝할 수 있고 모든 처리가 끝나면 클라이언트에게 결과를 파이프할 수도 있다.</p>
+<h3 id="toc_54">Conclusion</h3>
+<p>이 글에서는 Node.js의 가장 강력한 부분 중 하나인 스트림 API에 대해서 소개를 했다. 다음주에는 Node.js에 내장된 다른 모든 유형들과 써드파티 스트림까지 스트림의 세계에 더 깊이 살펴볼 것이다.</p><p><em class="label label-warning"><strong><i class="icon-warning-sign"></i> 헉~! 다음주라니... 연재인줄 알았으면 번역하지 말것을... :-)</strong></em></p>
+<blockquote>
+<p><em class="label label-info"><strong><i class="icon-info-sign icon-white"></i> Node.js 스트림 관련 문서</strong></em></p>
+<ul>
+<li><a href="http://nodeqa.com/nodejs_ref/22">Node.js Q&amp;A [cookbook] Stream #1</a></li>
+<li><a href="http://nodeqa.com/nodejs_ref/23">Node.js Q&amp;A [cookbook] Stream #2</a></li>
+<li><a href="http://nodeqa.com/nodejs_ref/27">Node.js Q&amp;A [cookbook] Stream #3</a></li>
+<li><a href="http://nodeqa.com/nodejs_ref/28">Node.js Q&amp;A [cookbook] Stream #4</a></li>
+<li><a href="http://nodeqa.com/nodejs_ref/60">Node.js Q&amp;A [cookbook] Node.js의 본질 Stream 슬라이드 #1 (Node.js Korea Conference)</a></li>
+<li><a href="http://nodeqa.com/nodejs_ref/61">Node.js Q&amp;A [cookbook] Node.js의 본질 Stream 슬라이드 #2 (Node.js Korea Conference)</a></li>
+<li><a href="http://nodeqa.com/nodejs_ref/62">Node.js Q&amp;A [cookbook] child_process 모듈의 spawn 메소드는 stream과 밀접한 관련이 있다.</a></li>
+<li><a href="http://nodeqa.com/nodejs_ref/63">Node.js Q&amp;A [cookbook] 파일시스템(fs)의 스트림 기본구성</a></li>
+<li><a href="https://dl.dropbox.com/u/3685/presentations/streams2/streams2-ko.pdf">STREAMS - Issac Z. Schlueter (Node.js Korea Conference)</a></li>
+</ul>
+</blockquote>
+
+                        </div>
+                        <hr />
+                                            
+                        <div class="row-fluid">
+                            
+                            <div class="pull-right">
+                                <a href="/post/소소한-커스터마이징" class="btn btn-info">소소한 커스터마이징 - Haroopress <i class="icon-white icon-chevron-right"></i></a>
+                            </div>
+                            
+
+                            
+                            <div class="pull-left">
+                                <a href="/post/번역]-an-introduction-to-node-dot-j-s" class="btn btn-info"><i class="icon-white icon-chevron-left"></i> [번역] An Introduction to Node.js</a>
+                            </div>
+                            
+                        </div>
+                    
+
+                        
+    <div class="row-fluid">
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'haroo-juhoi'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+            </div>
+        </div>
+        <div class="span3">
+                
+    <div id="author" class="well">
+        <h3>About Author</h3>
+        
+                    <ul class=thumbnails>
+                        <li>
+                        <div class="thumbnail">
+                            <img src="http://www.gravatar.com/avatar/efd791b43a56754702395a4c77907982?r=pg&amp;s=128.jpg&amp;d=identicon" />
+                        </div>
+                        </li>
+                    </ul>
+                    <p>
+                        <strong>Juhoi Kim</strong><br/>
+                        blog: <a href="http://juhoi.github.io" target="_blank">http://juhoi.github.io</a><br/>
+                        twitter: <a href="http://twitter.com/ByJuhoi" target="_blank">@ByJuhoi</a><br/>
+                        github: <a href="https://github.com/juhoi" target="_blank">juhoi</a>
+                    </p>
+                    <p>
+                        <a href="https://twitter.com/ByJuhoi" class="twitter-follow-button" data-show-count="true">Follow @ByJuhoi</a>
+                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                    </p>
+                    <p>
+                        <p><strong>모든 것은 나의 선택에 달려있다.</strong></p>
+                    </p>
+        
+    </div>
+    
+                        <div id="category" class="well">
+                <ul class="nav nav-list">
+                    <li class="nav-header">Categories</li>
+                    <li class=""><a href="/category"><i class="icon-home"></i> Home</a></li>
+                    
+                    <li><a href="/category/raspberry pi"><i class="icon-book"></i> raspberry pi</a></li>
+                    
+                    <li><a href="/category/haroopress"><i class="icon-book"></i> haroopress</a></li>
+                    
+                    <li><a href="/category/node.js"><i class="icon-book"></i> node.js</a></li>
+                    
+                </ul>
+            </div>
+
+            
+<div id="recents" class="well">
+    <ul class="nav nav-list">
+        <li class="nav-header">Recent Articles</li>
+    
+        <li>
+            <a href="/post/윈도우에서-하루프레스를-dot-dot-dot">윈도우에서 하루프레스를...
+            <!--span class="label">Juhoi Kim</span--></a>
+        </li>
+    
+        <li>
+            <a href="/post/21세기형-장난감-라즈베리-파이-dot-dot-dot">21세기형 장난감, 라즈베리 파이...
+            <!--span class="label">Juhoi Kim</span--></a>
+        </li>
+    
+        <li>
+            <a href="/post/번역]-web-scraping-in-node-dot-j-s">[번역] Web Scraping in Node.js
+            <!--span class="label">Juhoi Kim</span--></a>
+        </li>
+    
+        <li>
+            <a href="/post/번역]-getting-to-know-node">[번역] Getting to Know Node
+            <!--span class="label">Juhoi Kim</span--></a>
+        </li>
+    
+        <li>
+            <a href="/post/번역]-making-http-requests-in-node-dot-j-s">[번역] Making HTTP Requests in Node.js
+            <!--span class="label">Juhoi Kim</span--></a>
+        </li>
+    
+    </ul>
+</div>
+
+        </div>
+    </div>
+    <!--<div class="row">-->
+        <!--<div class="offset3 span9">-->
+            <!--<strong>tags</strong> :-->
+            <!---->
+            <!--<a href="/tag/node">node</a>&nbsp;-->
+            <!---->
+            <!--<a href="/tag/node.js">node.js</a>&nbsp;-->
+            <!---->
+            <!--<a href="/tag/stream">stream</a>&nbsp;-->
+            <!---->
+        <!--</div>-->
+    <!--</div>-->
+</div><!-- /container -->
+
+
+        <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="span12">
+                    <div class="well">
+                        <p class="pull-right"><a href="#">Back to top</a></p>
+                            <strong>haroopress</strong> developed by <a href="http://twitter.com/rhiokim" target="_blank">@rhiokim</a>,<a href="http://twitter.com/haroopress" target="_blank">@haroopress</a> and source in <a href="https://github.com/rhiokim/haroopress" target="_blank">github</a><br/>
+                            Designed and built with all the love in the world <a href="http://twitter.com/twitter" target="_blank">@twitter</a> by <a href="http://twitter.com/mdo" target="_blank">@mdo</a> and <a href="http://twitter.com/fat" target="_blank">@fat</a>.<br />
+                            Code licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License v2.0</a>. Documentation licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-36737619-1']);
+            _gaq.push(['_trackPageview']);
+
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+
+
+</body>
+</html>

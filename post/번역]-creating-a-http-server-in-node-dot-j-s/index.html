@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>[번역] Creating a HTTP Server in Node.js |  Juhoi's Haroopress</title>
+    <meta name="description" content="My Blog, I love programming">
+    <meta name="author" content="Juhoi Kim">
+    <meta name="keywords" content="JavaScript,Node.js,Meteor" />
+    <meta name="generator" content="haroopress v0.9.2" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link href="/rss.xml" rel="alternate" title="Juhoi's Haroopress" type="application/rss+xml">
+
+    <!-- Le styles -->
+    <link rel="canonical" href="http://juhoi.github.io">
+
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="/css/font-awesome.css" rel="stylesheet">
+    <link href="/css/markdown.css" rel="stylesheet">
+    <link href="/css/haroopress.css" rel="stylesheet">
+    <link href="/css/theme.css" rel="stylesheet">
+    <link href="/css/code/default.css" rel="stylesheet">
+    
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="72x72" href="/favicon-64.png">
+
+    <!-- Le javascript -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.jsonp.js"></script>
+    <script src="/js/mustache.js"></script>
+    <script src="/js/apps/github.js"></script>
+    <script src="/js/apps/twitter.js"></script>
+</head>
+<body data-spy="scroll" data-target=".subnav" data-offset="50">
+
+        <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+
+          <a class="pull-right" href="/rss.xml"><span class="icon-rss"></span></a>
+          
+            <a class="pull-right" href="http://twitter.com/ByJuhoi" target="_blank"><span class="icon-twitter"></span></a>
+          
+
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li>
+                <a href="/">Home</a>
+              </li>
+              <li>
+                <a href="/archives">Archives</a>
+              </li>
+              <li>
+                <a href="/category">Categories</a>
+              </li>
+              <li>
+                <a href="/about">About</a>
+              </li>
+              <!--li>
+                <a href="/slides">Slides</a>
+              </li-->
+                
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+<link href="/css/code/default.css" rel="stylesheet">
+<div class="container page-archive">
+    <div class="row">
+        <div class="span9">
+            <div class="row">
+                <div class="span9">
+                    <div class="well bg">
+                        
+                        <div class="page-header">
+                            <h1>[번역] Creating a HTTP Server in Node.js</h1>
+                            <span class="pull-right">Sunday, December 23 2012 3:22 PM</span>
+                        </div>
+
+                        <div class="pull-right social-area">
+                                                
+                            <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en" data-text="[번역] Creating a HTTP Server in Node.js -" data-url="http://juhoi.github.io/post/번역]-creating-a-http-server-in-node-dot-j-s" data-via="ByJuhoi">Tweet</a>
+                            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                    
+                                                
+
+                            
+        <div class="fb-like" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false" data-font="arial" data-href="http://juhoi.github.io/post/번역]-creating-a-http-server-in-node-dot-j-s"></div>
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/ko_KR/all.js#xfbml=1&appId=246177242115486";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
+                        </div>
+
+                        <div class="markdown-wrapper">
+                            <blockquote>
+<p><em class="label label-success"><strong><i class="icon-ok-sign"></i> sitepoint.com의 Node.js 관련 Article 번역</strong></em></p>
+<ol>
+<li><a href="http://juhoi.github.com/post/%EB%B2%88%EC%97%AD%5D-an-introduction-to-node-dot-j-s/">[번역] An Introduction to Node.js</a></li>
+</ol>
+</blockquote>
+<p><em class="label label-info"><strong><i class="icon-info-sign icon-white"></i> 원문</strong></em> <a href="http://sitepoint.com/">sitepoint.com</a>의 <strong><a href="http://sitepoint.com/creating-a-http-server-in-node-js/">Creating a HTTP Server in Node.js(http://sitepoint.com/creating-a-http-server-in-node-js/)</a></strong></p><p><em class="label label-warning"><strong><i class="icon-warning-sign"></i> 오역 주의</strong></em> 오역을 발견하시면 꼭 알려주세요~ :-)</p>
+<h2 id="toc_32">Creating a HTTP Server in Node.js</h2>
+<p><strong>최근에 작성한 글에서 <a href="http://juhoi.github.com/post/%EB%B2%88%EC%97%AD%5D-an-introduction-to-node-dot-j-s/">가장 기본적인 Node.js 프로그램</a>을 소개했었다. 물론 Hello World 프로그램도 괜찮지만, 사실 Node.js는 높은 성능의 확장 가능한 서버 애플리케이션을 작성하기 위한 것으로 더 많이 알려졌다. 이 글에서는 Node.js로 만든 간단한 HTTP 서버를 소개한다.</strong></p>
+<h3 id="toc_33">Running the Server</h3>
+<p>우선 <code>“web_server.js”</code>라는 파일을 만들고 아래의 코드를 작성 후 저장하자.</p><pre><code class="javascript">var http = require(<span class="string">"http"</span>)<span class="comment">;</span>
+var server = http<span class="preprocessor">.createServer</span>(function(request, response) {
+  response<span class="preprocessor">.writeHead</span>(<span class="number">200</span>, {<span class="string">"Content-Type"</span>: <span class="string">"text/html"</span>})<span class="comment">;</span>
+  response<span class="preprocessor">.write</span>(<span class="string">"&lt;!DOCTYPE \"html\"&gt;"</span>)<span class="comment">;</span>
+  response<span class="preprocessor">.write</span>(<span class="string">"&lt;html&gt;"</span>)<span class="comment">;</span>
+  response<span class="preprocessor">.write</span>(<span class="string">"&lt;head&gt;"</span>)<span class="comment">;</span>
+  response<span class="preprocessor">.write</span>(<span class="string">"&lt;title&gt;Hello World Page&lt;/title&gt;"</span>)<span class="comment">;</span>
+  response<span class="preprocessor">.write</span>(<span class="string">"&lt;/head&gt;"</span>)<span class="comment">;</span>
+  response<span class="preprocessor">.write</span>(<span class="string">"&lt;body&gt;"</span>)<span class="comment">;</span>
+  response<span class="preprocessor">.write</span>(<span class="string">"Hello World!"</span>)<span class="comment">;</span>
+  response<span class="preprocessor">.write</span>(<span class="string">"&lt;/body&gt;"</span>)<span class="comment">;</span>
+  response<span class="preprocessor">.write</span>(<span class="string">"&lt;/html&gt;"</span>)<span class="comment">;</span>
+  response<span class="preprocessor">.end</span>()<span class="comment">;</span>
+})<span class="comment">;</span>
+server<span class="preprocessor">.listen</span>(<span class="number">80</span>)<span class="comment">;</span>
+console<span class="preprocessor">.log</span>(<span class="string">"Server is listening"</span>)<span class="comment">;</span>
+</code></pre><p>이 서버를 구동시키려면 아래의 명령어를 실행해라. 정상적으로 실행이 된다면 <code>“Server is listening”</code>이라는 메시지를 보게될 것이다. 예제의 서버가 HTTP의 표준 포트인 80번 포트에 바인딩하고 있다는 것에 주목하자. 이 포트가 시스템에서 이미 사용중이거나 제한되어 있다면 에러가 발생할 것이다.</p><pre><code class="bash"><span class="variable">$ </span>node web_server.js
+</code></pre><p>다음은 웹 브라우저를 사용해서 서버에 연결해 볼 차례이다. 원하는 브라우저를 실행하고 다음 링크 중 하나를 직접 연결한다. 네트워크 측면에서 localhost(및 로컬호스트의 IP인 127.0.0.1)는 현재 사용중인 시스템을 가르킨다. 브라우저가 <code>“Hello World!”</code>라고 보여주면 정상인 것이다.</p><pre><code class="bash">http:<span class="comment">//localhost</span>
+http:<span class="comment">//127.0.0.1</span>
+</code></pre>
+<h3 id="toc_34">How the Server Works</h3>
+<p>이제 서버가 이상없이 실행되고 있으니 코드를 분석해 볼 차례이다. 첫번째로 살펴봐야 할 것은 1 라인에서 <code>require()</code>를 호출하고 있다는 것이다. Node.js는 대형 개발자 커뮤니티를 통해 간단한 모듈 시스템을 제공한다. Node.js 프로그램은 <code>require()</code> 메서드를 사용해서 각각의 모듈을 로드할 수 있다. 많은 모듈들의 경우 다운로드해서 사용해야 하지만, <a href="http://nodejs.org/api/http.html"><code>http</code></a>와 같은 특정 모듈들은 Node.js 설치 시 포함되어 있다.</p><p>2 라인에서는 <code>http</code> 모듈의 <code>createServer()</code> 메서드를 사용해서 HTTP 서버를 생성했다. 대부분의 Node.js 함수와 마찬가지로 <code>createServer()</code> 도 콜백 함수를 인자로 받는다. 이 콜백 함수는 서버가 새로운 요청을 받을때마다 매번 실행된다.</p><p>이 콜백 함수에서는 <code>request</code>와 <code>response</code>라는 두개의 인자를 받는다. <code>request</code> 객체는 URL, HTTP 헤더 등과 같은 클라이언트의 요청에 관한 정보를 포함하고 있다. 마찬가지로 <code>response</code> 객체는 클라이언트에게 데이터를 돌려보내는데 사용한다.</p><p>위 콜백 함수는 <code>response.writeHead()</code> 메서드의 호출로 시작한다. 이 메서드는 클라이언트에 <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html">HTTP 상태 코드</a>와 <a href="http://en.wikipedia.org/wiki/List_of_HTTP_header_fields#Responses"><code>response</code> 헤더</a>의 컬렉션을 보낸다. 여기서 상태 코드라는 것은 요청에 대한 결과를 가르키는 것이다. 예를 들면, 모든 사람들이 “페이지를 찾을 수 없다”는 것을 나타내는 <code>404</code> 에러를 만난 적이 있을 것이다. 위 예제의 서버는 <code>“성공”</code>을 나타내는 <code>200</code> 코드를 반환한다.</p><p>그 상태 코드에 따라서 서버는 응답의 파라미터들을 정의하고 있는 여러 HTTP 헤더를 반환하게 된다. 직접 헤더를 명시하지 않아도 Node.js는 암묵적으로 헤더를 전송한다. 예제의 서버는 <code>Content-Type</code> 헤더만을 명시하고 있다. 이 헤더는 응답의 <a href="http://en.wikipedia.org/wiki/MIME_type">MIME 타입</a>을 정의한다. 응답이 HTML인 경우에 MIME 타입은 <code>“text/html”</code>이다.</p><p>다음으로 서버는 <code>response.write()</code>를 여러번 호출한다. 이것은 HTML 페이지를 작성하기 위해서 사용되는 것이다. 기본적으로 <code>UTF-8</code> 문자셋으로 인코딩된다. 성능 향상을 위해 기술적으로는 하나의 호출로 합치면 좋겠지만, 이 정도의 예제에서는 코드 가독성을 위해서 성능은 신경쓰지 않았다.</p><p>HTML 페이지를 모두 작성한 후에는 <code>response.end()</code> 메서드를 호출한다. 이 메서드를 호출함으로써 응답 헤더와 본문이 전송되고 요청에 대한 처리가 완료된다. 예제의 서버에서는 아무 파라미터 없이 <code>end()</code>를 호출하지만, 단지 한번의 호출만 필요하다고 가정한다면 <code>write()</code>와 같은 방식으로 호출될 수 있다.</p><p>15 라인에서는 <code>listen()</code>을 호출하여 서버에 포트를 바인딩하고 연결 요청을 리스닝하게 된다. 컴퓨터들은 종단간 통신에 사용되는 수천개의 포트를 가지고 있다. 서버에 연결하기 위해서는 클라이언트들은 서버가 리스닝하고 있는 포트를 정확히 알아야만 한다. HTTP 서버가 전통적으로 80번 포트를 사용하듯이 포트들은 각각의 포트 번호로써 식별된다.</p>
+<h3 id="toc_35">Conclusion</h3>
+<p>이 글에서는 아주 기본적인 HTTP 서버를 보여줬다. 현재 상태로는 서버가 하나의 HTML 페이지만을 반환할 뿐이다. 다음주에는 파일 시스템으로부터 웹 페이지를 읽거나 HTTP 인증을 통합하는 것과 같은 추가적인 특성에 대해서 살펴보는 등 Node.js에 대해서 더 자세히 알아볼 것이다.</p>
+                        </div>
+                        <hr />
+                                            
+                        <div class="row-fluid">
+                            
+                            <div class="pull-right">
+                                <a href="/post/번역]-an-introduction-to-node-dot-j-s" class="btn btn-info">[번역] An Introduction to Node.js <i class="icon-white icon-chevron-right"></i></a>
+                            </div>
+                            
+
+                            
+                            <div class="pull-left">
+                                <a href="/post/번역]-http-authentication-in-node-dot-j-s" class="btn btn-info"><i class="icon-white icon-chevron-left"></i> [번역] HTTP Authentication in Node.js</a>
+                            </div>
+                            
+                        </div>
+                    
+
+                        
+    <div class="row-fluid">
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'haroo-juhoi'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+            </div>
+        </div>
+        <div class="span3">
+                
+    <div id="author" class="well">
+        <h3>About Author</h3>
+        
+                    <ul class=thumbnails>
+                        <li>
+                        <div class="thumbnail">
+                            <img src="http://www.gravatar.com/avatar/efd791b43a56754702395a4c77907982?r=pg&amp;s=128.jpg&amp;d=identicon" />
+                        </div>
+                        </li>
+                    </ul>
+                    <p>
+                        <strong>Juhoi Kim</strong><br/>
+                        blog: <a href="http://juhoi.github.io" target="_blank">http://juhoi.github.io</a><br/>
+                        twitter: <a href="http://twitter.com/ByJuhoi" target="_blank">@ByJuhoi</a><br/>
+                        github: <a href="https://github.com/juhoi" target="_blank">juhoi</a>
+                    </p>
+                    <p>
+                        <a href="https://twitter.com/ByJuhoi" class="twitter-follow-button" data-show-count="true">Follow @ByJuhoi</a>
+                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                    </p>
+                    <p>
+                        <p><strong>모든 것은 나의 선택에 달려있다.</strong></p>
+                    </p>
+        
+    </div>
+    
+                        <div id="category" class="well">
+                <ul class="nav nav-list">
+                    <li class="nav-header">Categories</li>
+                    <li class=""><a href="/category"><i class="icon-home"></i> Home</a></li>
+                    
+                    <li><a href="/category/raspberry pi"><i class="icon-book"></i> raspberry pi</a></li>
+                    
+                    <li><a href="/category/haroopress"><i class="icon-book"></i> haroopress</a></li>
+                    
+                    <li><a href="/category/node.js"><i class="icon-book"></i> node.js</a></li>
+                    
+                </ul>
+            </div>
+
+            
+<div id="recents" class="well">
+    <ul class="nav nav-list">
+        <li class="nav-header">Recent Articles</li>
+    
+        <li>
+            <a href="/post/윈도우에서-하루프레스를-dot-dot-dot">윈도우에서 하루프레스를...
+            <!--span class="label">Juhoi Kim</span--></a>
+        </li>
+    
+        <li>
+            <a href="/post/21세기형-장난감-라즈베리-파이-dot-dot-dot">21세기형 장난감, 라즈베리 파이...
+            <!--span class="label">Juhoi Kim</span--></a>
+        </li>
+    
+        <li>
+            <a href="/post/번역]-web-scraping-in-node-dot-j-s">[번역] Web Scraping in Node.js
+            <!--span class="label">Juhoi Kim</span--></a>
+        </li>
+    
+        <li>
+            <a href="/post/번역]-getting-to-know-node">[번역] Getting to Know Node
+            <!--span class="label">Juhoi Kim</span--></a>
+        </li>
+    
+        <li>
+            <a href="/post/번역]-making-http-requests-in-node-dot-j-s">[번역] Making HTTP Requests in Node.js
+            <!--span class="label">Juhoi Kim</span--></a>
+        </li>
+    
+    </ul>
+</div>
+
+        </div>
+    </div>
+    <!--<div class="row">-->
+        <!--<div class="offset3 span9">-->
+            <!--<strong>tags</strong> :-->
+            <!---->
+            <!--<a href="/tag/node">node</a>&nbsp;-->
+            <!---->
+            <!--<a href="/tag/node.js">node.js</a>&nbsp;-->
+            <!---->
+        <!--</div>-->
+    <!--</div>-->
+</div><!-- /container -->
+
+
+        <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="span12">
+                    <div class="well">
+                        <p class="pull-right"><a href="#">Back to top</a></p>
+                            <strong>haroopress</strong> developed by <a href="http://twitter.com/rhiokim" target="_blank">@rhiokim</a>,<a href="http://twitter.com/haroopress" target="_blank">@haroopress</a> and source in <a href="https://github.com/rhiokim/haroopress" target="_blank">github</a><br/>
+                            Designed and built with all the love in the world <a href="http://twitter.com/twitter" target="_blank">@twitter</a> by <a href="http://twitter.com/mdo" target="_blank">@mdo</a> and <a href="http://twitter.com/fat" target="_blank">@fat</a>.<br />
+                            Code licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License v2.0</a>. Documentation licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-36737619-1']);
+            _gaq.push(['_trackPageview']);
+
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+
+
+</body>
+</html>

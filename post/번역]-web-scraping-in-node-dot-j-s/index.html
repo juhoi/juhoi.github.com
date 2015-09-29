@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>[번역] Web Scraping in Node.js |  Juhoi's Haroopress</title>
+    <meta name="description" content="My Blog, I love programming">
+    <meta name="author" content="Juhoi Kim">
+    <meta name="keywords" content="JavaScript,Node.js,Meteor" />
+    <meta name="generator" content="haroopress v0.9.2" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link href="/rss.xml" rel="alternate" title="Juhoi's Haroopress" type="application/rss+xml">
+
+    <!-- Le styles -->
+    <link rel="canonical" href="http://juhoi.github.io">
+
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="/css/font-awesome.css" rel="stylesheet">
+    <link href="/css/markdown.css" rel="stylesheet">
+    <link href="/css/haroopress.css" rel="stylesheet">
+    <link href="/css/theme.css" rel="stylesheet">
+    <link href="/css/code/default.css" rel="stylesheet">
+    
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="72x72" href="/favicon-64.png">
+
+    <!-- Le javascript -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.jsonp.js"></script>
+    <script src="/js/mustache.js"></script>
+    <script src="/js/apps/github.js"></script>
+    <script src="/js/apps/twitter.js"></script>
+</head>
+<body data-spy="scroll" data-target=".subnav" data-offset="50">
+
+        <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+
+          <a class="pull-right" href="/rss.xml"><span class="icon-rss"></span></a>
+          
+            <a class="pull-right" href="http://twitter.com/ByJuhoi" target="_blank"><span class="icon-twitter"></span></a>
+          
+
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li>
+                <a href="/">Home</a>
+              </li>
+              <li>
+                <a href="/archives">Archives</a>
+              </li>
+              <li>
+                <a href="/category">Categories</a>
+              </li>
+              <li>
+                <a href="/about">About</a>
+              </li>
+              <!--li>
+                <a href="/slides">Slides</a>
+              </li-->
+                
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+<link href="/css/code/default.css" rel="stylesheet">
+<div class="container page-archive">
+    <div class="row">
+        <div class="span9">
+            <div class="row">
+                <div class="span9">
+                    <div class="well bg">
+                        
+                        <div class="page-header">
+                            <h1>[번역] Web Scraping in Node.js</h1>
+                            <span class="pull-right">Sunday, January 13 2013 12:31 PM</span>
+                        </div>
+
+                        <div class="pull-right social-area">
+                                                
+                            <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en" data-text="[번역] Web Scraping in Node.js -" data-url="http://juhoi.github.io/post/번역]-web-scraping-in-node-dot-j-s" data-via="ByJuhoi">Tweet</a>
+                            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                    
+                                                
+
+                            
+        <div class="fb-like" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false" data-font="arial" data-href="http://juhoi.github.io/post/번역]-web-scraping-in-node-dot-j-s"></div>
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/ko_KR/all.js#xfbml=1&appId=246177242115486";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
+                        </div>
+
+                        <div class="markdown-wrapper">
+                            <blockquote>
+<p><em class="label label-success"><strong><i class="icon-ok-sign"></i> sitepoint의 Node.js 관련 Article 번역</strong></em></p>
+<ol>
+<li><a href="http://juhoi.github.com/post/%EB%B2%88%EC%97%AD%5D-an-introduction-to-node-dot-j-s/">[번역] An Introduction to Node.js</a></li>
+<li><a href="http://juhoi.github.com/post/%EB%B2%88%EC%97%AD%5D-creating-a-http-server-in-node-dot-j-s/">[번역] Creating a HTTP Server in Node.js</a></li>
+<li><a href="http://juhoi.github.com/post/%EB%B2%88%EC%97%AD%5D-http-authentication-in-node-dot-j-s/">[번역] HTTP Authentication in Node.js</a></li>
+<li><a href="http://juhoi.github.com/post/%EB%B2%88%EC%97%AD%5D-cloud-deployment-of-node-dot-j-s-applications-with-nodejitsu">[번역] Cloud Deployment of Node.js Applications with Nodejitsu</a></li>
+<li><a href="http://juhoi.github.com/post/%EB%B2%88%EC%97%AD%5D-accessing-the-file-system-in-node-dot-j-s">[번역] Accessing the File System in Node.js</a></li>
+<li><a href="http://juhoi.github.com/post/%EB%B2%88%EC%97%AD%5D-making-http-requests-in-node-dot-j-s/">[번역] Making HTTP Requests in Node.js</a></li>
+<li><a href="http://juhoi.github.com/post/%EB%B2%88%EC%97%AD%5D-getting-to-know-node/">[번역] Getting to Know Node</a></li>
+</ol>
+</blockquote>
+<p><em class="label label-info"><strong><i class="icon-info-sign icon-white"></i> 원문</strong></em> <a href="http://sitepoint.com/">sitepoint.com</a>의 <strong><a href="http://sitepoint.com/web-scraping-in-node-js/">Web Scraping in Node.js</a></strong></p><p><em class="label label-warning"><strong><i class="icon-warning-sign"></i> 오역 주의</strong></em> 오역을 발견하시면 꼭 알려주세요~ :-)</p>
+<h2 id="toc_64">Web Scraping in Node.js</h2>
+<p><strong>웹 스크랩퍼는 프로그래밍된 계획에 따라 웹페이지에 방문하여 데이터를 추출하는 소프트웨어의 일부이다. 웹 스크래핑은 콘텐츠 복제라는 이슈때문에 논란이 많은 주제중 하나이다. 대신에 대부분의 웹사이트 소유자들은 공개된 API를 통해 자신의 데이터에 접근하는 방법을 선호한다. 불행하게도 많은 사이트들은 부실한 API를 제공하거나 그마저도 제공하지 않는다. 이것이 많은 개발자들을 웹 스크래핑에 의지하게 만들었다. 이번 글에서는 Node.js로 여러분들 자신만의 웹 스크래퍼를 구현하는 방법에 대해 알려줄 것이다.</strong></p><p>웹 스크래핑의 첫번째 단계는 리모트 서버로부터 소스코드를 다운로드하는 것이다. <a href="https://github.com/mikeal/request">request</a> 모듈을 사용하여 페이지를 다운로드하는 방법은 “<a href="http://juhoi.github.com/post/%EB%B2%88%EC%97%AD%5D-making-http-requests-in-node-dot-j-s/">Making HTTP Requests in Node.js</a>”에서 배웠었다. 다음 예제는 Node.js에서 <code>GET</code> 요청 시 빠르게 리프레쉬하게 한다.</p><pre><code class="javascript">var <span class="built_in">request</span> = require(<span class="string">"request"</span>);
+<span class="built_in">request</span>({
+  uri: <span class="string">"http://www.sitepoint.com"</span>,
+}, <span class="keyword">function</span>(<span class="keyword">error</span>, <span class="built_in">response</span>, body) {
+  console.<span class="built_in">log</span>(body);
+});
+</code></pre><p>웹 스크래핑의 두번째 단계는 다소 어려운데 그것은 다운로드한 소스코드에서 데이터를 추출하는 것이다. 클라이언트 측에서는 <a href="http://cjihrig.com/blog/javascripts-selectors-api/">선택자 API</a>나 <a href="http://jquery.com/">jQuery</a>같은 라이브러리를 사용하면 별것 아닌 일지만, 아쉽게도 이러한 해결책은 DOM에 쿼리가 가능하다는 사실을 전제로 하고 있다. 안타깝지만 Node.js는 DOM을 제공하지 않는다. 혹시 제공을 하는지?</p>
+<h3 id="toc_65">The Cheerio Module</h3>
+<p>Node.js가 DOM에 대한 모듈을 내장하고 있지는 않지만, HTML 소스코드의 문자열로부터 DOM을 만들수 있는 여러 모듈이 있다. 그 중 많이 사용하는 두개의 DOM 모듈이 있는데 <a href="https://github.com/MatthewMueller/cheerio">cheerio</a>와 <a href="https://github.com/tmpvar/jsdom">jsdom</a>이다. 이번 글에서는 <code>cheerio</code>에 중점을 둘 것이며 다음 명령으로 모듈을 설치할 수 있다.</p><pre><code class="bash"><span class="title">npm</span> install cheerio
+</code></pre><p><code>cheerio</code> 모듈은 jQuery의 서브셋(하위집합)을 구현한다. 이것은 많은 개발자들이 빠르게 익힐수 있다는 것을 의미한다. 사실 <code>cheerio</code>는 jQuery랑 비슷해서 <code>cheerio</code>에 구현되어 있지 않은 jQuery 함수를 사용하려고 하는 자신을 쉽게 볼 수 있다.</p><p>다음 예제는 <code>cheerio</code>를 사용해서 HTML 문자열을 파싱하는 법을 보여준다. 첫번째 라인에서 <code>cheerio</code> 모듈을 프로그램에 임포트한다. <code>html</code> 변수는 파싱해야할 HTML의 일부분을 가지고 있다. 3 라인에서 그 HTML은 <code>cheerio</code> 모듈을 사용해서 파싱된다. 그 결과를 <code>$</code> 변수에 할당한다. 달러 표시는 jQuery에서 전통적으로 사용되기 때문에 선택했다. 4 라인에서 CSS 스타일의 선택자를 사용해서 <code>&lt;ul&gt;</code> 요소를 선택한다. 마지막으로 <code>html()</code> 메소드를 사용해서 list의 내부 HTML을 출력했다.</p><pre><code class="javascript">var cheerio = require(<span class="string">"cheerio"</span>)<span class="comment">;</span>
+var html = <span class="string">"&lt;ul&gt;&lt;li&gt;foo&lt;/li&gt;&lt;li&gt;bar&lt;/li&gt;&lt;/ul&gt;"</span><span class="comment">;</span>
+var $ = cheerio<span class="preprocessor">.load</span>(html)<span class="comment">;</span>
+var list = $(<span class="string">"ul"</span>)<span class="comment">;</span>
+console<span class="preprocessor">.log</span>(list<span class="preprocessor">.html</span>())<span class="comment">;</span>
+</code></pre>
+<h4 id="toc_66">Limitations</h4>
+<p><code>cheerio</code>는 활발히 개발중에 있고 항상 더 나아지고 있다. 하지만, 여전히 많은 제한사항을 가지고 있다. <code>cheerio</code>의 가장 불만스러운 점은 HTML 파서이다. HTML 파싱은 어려운 문제이고 잘못된 HTML을 포함한 많은 페이지가 있다. <code>cheerio</code> 모듈이 이러한 페이지들에서 충돌이 발생하지는 않더라도 여러분은 요소를 선택할 수 없게 될지도 모른다. 이것은 버그가 선택자에서 발생하는 것인지 아니면 페이지 자체에서 발생하는 것인지 결정하기 어렵게 만들수 있다.</p>
+<h3 id="toc_67">Scraping sitepoint</h3>
+<p>다음은 완벽한 웹 스크랩퍼를 만들기 위해 <code>request</code>와 <code>cheerio</code> 모듈을 결합한 예제이다. 예제의 스크랩퍼는 sitepoint 홈페이지에 있는 모든 글들의 제목과 URL을 추출한다. 처음 두개의 라인에서 필요한 모듈을 임포트한다. 3 라인부터 5 라인까지 sitepoint 홈페이지의 소스코드를 다운로드한다. 그리고 나서 파싱을 하기 위해 소스를 <code>cheerio</code> 모듈에 전달했다.</p><pre><code class="javascript"><span class="keyword">var</span> request = <span class="keyword">require</span>(<span class="string">"request"</span>);
+<span class="keyword">var</span> cheerio = <span class="keyword">require</span>(<span class="string">"cheerio"</span>);
+request({
+  uri: <span class="string">"http://www.sitepoint.com"</span>,
+}, <span class="function"><span class="keyword">function</span><span class="params">(error, response, body)</span> {</span>
+  <span class="keyword">var</span> $ = cheerio.load(body);
+  $(<span class="string">".entry-title &gt; a"</span>).each(<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+    <span class="keyword">var</span> link = $(<span class="keyword">this</span>);
+    <span class="keyword">var</span> text = link.text();
+    <span class="keyword">var</span> href = link.attr(<span class="string">"href"</span>);
+    console.log(text + <span class="string">" -&gt; "</span> + href);
+  });
+});
+</code></pre><p>sitepoint의 소스코드를 보면 모든 글의 제목이 <code>entry-title</code>라는 클래스를 가진 <code>&lt;h1&gt;</code> 요소에 포함된 링크라는 것을 주의해야 할 것이다. 7 라인의 선택자는 모든 글의 링크를 선택한다. 그 다음 <code>each()</code> 함수는 모든 글들을 대상으로 반복하기 위해 사용된다.  마지막으로, 글 제목과 URL은 각각 링크의 텍스트와 <code>href</code> 속성으로부터 얻는다.</p>
+<h3 id="toc_68">Conclusion</h3>
+<p>이번 글은 Node.js로 간단한 웹 스크래핑 프로그램을 만드는 법을 보여줬다. 이런 방법이 웹 페이지를 스크래핑하는 유일한 방법은 아니다. headless 브라우저(역자주-Graphical User Interface가 없는 웹브라우저)를 사용하는 것과 같은 다른 기술들도 있다. 더 강력하지만, 단순함 및(또는) 속도와 타협을 하게 될지 모른다. 다음 글은 headless 브라우저 모듈 <a href="http://phantomjs.org/">PhantomJS</a>에 대해 중점을 두어 다룰 것이다.</p>
+                        </div>
+                        <hr />
+                                            
+                        <div class="row-fluid">
+                            
+                            <div class="pull-right">
+                                <a href="/post/번역]-getting-to-know-node" class="btn btn-info">[번역] Getting to Know Node <i class="icon-white icon-chevron-right"></i></a>
+                            </div>
+                            
+
+                            
+                            <div class="pull-left">
+                                <a href="/post/21세기형-장난감-라즈베리-파이-dot-dot-dot" class="btn btn-info"><i class="icon-white icon-chevron-left"></i> 21세기형 장난감, 라즈베리 파이...</a>
+                            </div>
+                            
+                        </div>
+                    
+
+                        
+    <div class="row-fluid">
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'haroo-juhoi'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+            </div>
+        </div>
+        <div class="span3">
+                
+    <div id="author" class="well">
+        <h3>About Author</h3>
+        
+                    <ul class=thumbnails>
+                        <li>
+                        <div class="thumbnail">
+                            <img src="http://www.gravatar.com/avatar/efd791b43a56754702395a4c77907982?r=pg&amp;s=128.jpg&amp;d=identicon" />
+                        </div>
+                        </li>
+                    </ul>
+                    <p>
+                        <strong>Juhoi Kim</strong><br/>
+                        blog: <a href="http://juhoi.github.io" target="_blank">http://juhoi.github.io</a><br/>
+                        twitter: <a href="http://twitter.com/ByJuhoi" target="_blank">@ByJuhoi</a><br/>
+                        github: <a href="https://github.com/juhoi" target="_blank">juhoi</a>
+                    </p>
+                    <p>
+                        <a href="https://twitter.com/ByJuhoi" class="twitter-follow-button" data-show-count="true">Follow @ByJuhoi</a>
+                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                    </p>
+                    <p>
+                        <p><strong>모든 것은 나의 선택에 달려있다.</strong></p>
+                    </p>
+        
+    </div>
+    
+                        <div id="category" class="well">
+                <ul class="nav nav-list">
+                    <li class="nav-header">Categories</li>
+                    <li class=""><a href="/category"><i class="icon-home"></i> Home</a></li>
+                    
+                    <li><a href="/category/raspberry pi"><i class="icon-book"></i> raspberry pi</a></li>
+                    
+                    <li><a href="/category/haroopress"><i class="icon-book"></i> haroopress</a></li>
+                    
+                    <li><a href="/category/node.js"><i class="icon-book"></i> node.js</a></li>
+                    
+                </ul>
+            </div>
+
+            
+<div id="recents" class="well">
+    <ul class="nav nav-list">
+        <li class="nav-header">Recent Articles</li>
+    
+        <li>
+            <a href="/post/윈도우에서-하루프레스를-dot-dot-dot">윈도우에서 하루프레스를...
+            <!--span class="label">Juhoi Kim</span--></a>
+        </li>
+    
+        <li>
+            <a href="/post/21세기형-장난감-라즈베리-파이-dot-dot-dot">21세기형 장난감, 라즈베리 파이...
+            <!--span class="label">Juhoi Kim</span--></a>
+        </li>
+    
+        <li>
+            <a href="/post/번역]-web-scraping-in-node-dot-j-s">[번역] Web Scraping in Node.js
+            <!--span class="label">Juhoi Kim</span--></a>
+        </li>
+    
+        <li>
+            <a href="/post/번역]-getting-to-know-node">[번역] Getting to Know Node
+            <!--span class="label">Juhoi Kim</span--></a>
+        </li>
+    
+        <li>
+            <a href="/post/번역]-making-http-requests-in-node-dot-j-s">[번역] Making HTTP Requests in Node.js
+            <!--span class="label">Juhoi Kim</span--></a>
+        </li>
+    
+    </ul>
+</div>
+
+        </div>
+    </div>
+    <!--<div class="row">-->
+        <!--<div class="offset3 span9">-->
+            <!--<strong>tags</strong> :-->
+            <!---->
+            <!--<a href="/tag/node">node</a>&nbsp;-->
+            <!---->
+            <!--<a href="/tag/node.js">node.js</a>&nbsp;-->
+            <!---->
+        <!--</div>-->
+    <!--</div>-->
+</div><!-- /container -->
+
+
+        <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="span12">
+                    <div class="well">
+                        <p class="pull-right"><a href="#">Back to top</a></p>
+                            <strong>haroopress</strong> developed by <a href="http://twitter.com/rhiokim" target="_blank">@rhiokim</a>,<a href="http://twitter.com/haroopress" target="_blank">@haroopress</a> and source in <a href="https://github.com/rhiokim/haroopress" target="_blank">github</a><br/>
+                            Designed and built with all the love in the world <a href="http://twitter.com/twitter" target="_blank">@twitter</a> by <a href="http://twitter.com/mdo" target="_blank">@mdo</a> and <a href="http://twitter.com/fat" target="_blank">@fat</a>.<br />
+                            Code licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License v2.0</a>. Documentation licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-36737619-1']);
+            _gaq.push(['_trackPageview']);
+
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+
+
+</body>
+</html>

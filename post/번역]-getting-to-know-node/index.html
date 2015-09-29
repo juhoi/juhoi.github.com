@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>[번역] Getting to Know Node |  Juhoi's Haroopress</title>
+    <meta name="description" content="My Blog, I love programming">
+    <meta name="author" content="Juhoi Kim">
+    <meta name="keywords" content="JavaScript,Node.js,Meteor" />
+    <meta name="generator" content="haroopress v0.9.2" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link href="/rss.xml" rel="alternate" title="Juhoi's Haroopress" type="application/rss+xml">
+
+    <!-- Le styles -->
+    <link rel="canonical" href="http://juhoi.github.io">
+
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="/css/font-awesome.css" rel="stylesheet">
+    <link href="/css/markdown.css" rel="stylesheet">
+    <link href="/css/haroopress.css" rel="stylesheet">
+    <link href="/css/theme.css" rel="stylesheet">
+    <link href="/css/code/default.css" rel="stylesheet">
+    
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="72x72" href="/favicon-64.png">
+
+    <!-- Le javascript -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.jsonp.js"></script>
+    <script src="/js/mustache.js"></script>
+    <script src="/js/apps/github.js"></script>
+    <script src="/js/apps/twitter.js"></script>
+</head>
+<body data-spy="scroll" data-target=".subnav" data-offset="50">
+
+        <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+
+          <a class="pull-right" href="/rss.xml"><span class="icon-rss"></span></a>
+          
+            <a class="pull-right" href="http://twitter.com/ByJuhoi" target="_blank"><span class="icon-twitter"></span></a>
+          
+
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li>
+                <a href="/">Home</a>
+              </li>
+              <li>
+                <a href="/archives">Archives</a>
+              </li>
+              <li>
+                <a href="/category">Categories</a>
+              </li>
+              <li>
+                <a href="/about">About</a>
+              </li>
+              <!--li>
+                <a href="/slides">Slides</a>
+              </li-->
+                
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+<link href="/css/code/default.css" rel="stylesheet">
+<div class="container page-archive">
+    <div class="row">
+        <div class="span9">
+            <div class="row">
+                <div class="span9">
+                    <div class="well bg">
+                        
+                        <div class="page-header">
+                            <h1>[번역] Getting to Know Node</h1>
+                            <span class="pull-right">Wednesday, January 9 2013 1:29 AM</span>
+                        </div>
+
+                        <div class="pull-right social-area">
+                                                
+                            <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en" data-text="[번역] Getting to Know Node -" data-url="http://juhoi.github.io/post/번역]-getting-to-know-node" data-via="ByJuhoi">Tweet</a>
+                            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                    
+                                                
+
+                            
+        <div class="fb-like" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false" data-font="arial" data-href="http://juhoi.github.io/post/번역]-getting-to-know-node"></div>
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/ko_KR/all.js#xfbml=1&appId=246177242115486";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
+                        </div>
+
+                        <div class="markdown-wrapper">
+                            <blockquote>
+<p><em class="label label-success"><strong><i class="icon-ok-sign"></i> sitepoint.com의 Node.js 관련 Article 번역</strong></em></p>
+<ol>
+<li><a href="http://juhoi.github.com/post/%EB%B2%88%EC%97%AD%5D-an-introduction-to-node-dot-j-s/">[번역] An Introduction to Node.js</a></li>
+<li><a href="http://juhoi.github.com/post/%EB%B2%88%EC%97%AD%5D-creating-a-http-server-in-node-dot-j-s/">[번역] Creating a HTTP Server in Node.js</a></li>
+<li><a href="http://juhoi.github.com/post/%EB%B2%88%EC%97%AD%5D-http-authentication-in-node-dot-j-s/">[번역] HTTP Authentication in Node.js</a></li>
+<li><a href="http://juhoi.github.com/post/%EB%B2%88%EC%97%AD%5D-cloud-deployment-of-node-dot-j-s-applications-with-nodejitsu">[번역] Cloud Deployment of Node.js Applications with Nodejitsu</a></li>
+<li><a href="http://juhoi.github.com/post/%EB%B2%88%EC%97%AD%5D-accessing-the-file-system-in-node-dot-j-s">[번역] Accessing the File System in Node.js</a></li>
+<li><a href="http://juhoi.github.com/post/%EB%B2%88%EC%97%AD%5D-making-http-requests-in-node-dot-j-s/">[번역] Making HTTP Requests in Node.js</a></li>
+</ol>
+</blockquote>
+<p><em class="label label-info"><strong><i class="icon-info-sign icon-white"></i> 원문</strong></em> <a href="http://sitepoint.com/">sitepoint.com</a>의 <strong><a href="http://sitepoint.com/getting-to-know-node/">Getting to Know Node</a></strong></p><p><em class="label label-important"><strong><i class="icon-flag"></i> 이번 글은 내용이 인포그래픽으로 되어 있어 이미지에 마우스 오버시 번역을 보여주고 있다.</strong></em></p><p><em class="label label-warning"><strong><i class="icon-warning-sign"></i> 오역 주의</strong></em> 오역을 발견하시면 꼭 알려주세요~ :-)</p>
+<h2 id="toc_37">Getting to Know Node</h2>
+<p><strong>사람들은 흔히 하나의 그림이 수천 단어의 가치가 있다고 이야기 한다. 그래서 우리는 여러분을 위해 약 만개 정도 단어의 가치가 있는 그림을 준비했다. 이 글은 Node.js의 개요에 대해서 인포그래픽 스타일로 보여준다. 이 인포그래픽은 Node가 무엇인지 설명하고 서버측 JavaScript 프레임워크가 정확하게 얼마나 인기가 있는지를 보여준다. 만약 여러분이 아직 Node에 열광하지 않고 있다면 거부할 수 없는 이유를 알려줄 것이다.</strong></p><p><img src="./@img/1.jpg" usemap="#1.jpg" style="border: 0;" />
+<img src="./@img/2.jpg" usemap="#2.jpg" style="border: 0;" /></p><p><map name="1.jpg">
+    <area shape="rect" coords="161,21,620,118" title="NODE 알아보기" />
+    <area shape="rect" coords="18,290,761,331" title="계속해서 인기를 얻고 있는 서버측 프레임워크, Node.js 살펴보기" />
+    <area shape="rect" coords="176,388,761,507" title="미국인의 ⅔는 휴대기기를 통해 인터넷에 연결한다." />
+    <area shape="rect" coords="21,696,764,737" title="그리고, 세계 100대 웹사이트 중 34곳이 html5를 사용하고 있다." />
+    <area shape="rect" coords="30,880,136,929" title="모바일의 성장" />
+    <area shape="rect" coords="226,880,360,929" title="HTML5의 인기" />
+    <area shape="rect" coords="445,781,757,895" title="실시간 웹의 성장" />
+    <area shape="rect" coords="21,954,764,995" title="그리고, 실시간 웹은 실시간 기술을 필요로 한다." />
+    <area shape="rect" coords="240,1032,534,1096" title="Node.js의 등장" />
+    <area shape="rect" coords="314,1161,752,1215" title="이벤트 중심의 넌블럭킹 I/O 모델을 사용하는 개발 프레임워크" />
+    <area shape="rect" coords="313,1228,751,1282" title="JavaScript 기반으로 프런트 엔드와 서버측 아키텍쳐를 통합" />
+    <area shape="rect" coords="313,1295,751,1349" title="높은 성능, 뛰어난 확장성, 분산 실시간 웹 애플리케이션을 목표로..." />
+    <area shape="rect" coords="32,1587,253,1634" title="Github에서 두번째로 많이 본(watched) 저장소" />
+    <area shape="rect" coords="274,1587,424,1634" title="루비 & 레일즈 보다 많이 봄(watched)" />
+    <area shape="rect" coords="463,1586,732,1635" title="노드 패키지 매니져에는 이미 12,000개의 모듈을 가지고 있다." />
+    <area shape="rect" coords="95,1654,320,1724" title="Github에서 가장 인기(star)가 많은 저장소" />
+    <area shape="rect" coords="451,1654,702,1724" title="노드 패키지 매니저에 대한 개발자 통계" />
+    <area shape="rect" coords="137,2203,644,2268" title="Node.js를 사용한 주목할만한 곳" />
+    <area shape="rect" coords="164,2280,761,2308" title="Linkedin은 서버측의 모든 모바일 소프트웨어 스택을 완전히 Node.js로 구축했다." />
+    <area shape="rect" coords="69,2499,349,2545" title="그들은 각각 물리적으로 다른 별도의 시스템상에서 15개의 인스턴스가 있는, 즉 15개 서버를 운영하다가" />
+    <area shape="rect" coords="453,2498,721,2545" title="단지 4개의 인스턴스로 기존보다 두배의 트래픽을 처리할 수 있게 되었다." />
+</map>
+<map name="2.jpg">
+    <area shape="rect" coords="175,5,627,32" title="Walmart는 Node.js를 사용하여 모바일앱을 강력하게 리엔지니어링했다." />
+    <area shape="rect" coords="82,201,382,243" title="그들은 모든 JavaScript 처리를 서버에 넣었다." />
+    <area shape="rect" coords="528,91,705,173" title="고객들의 풍부하고 동적인 사용자 경험" />
+    <area shape="rect" coords="109,266,725,295" title="eBay는 최근에 런타임 스택으로 Node.js를 사용해서 HTTP APIs의 게이트웨이인 ql.io를 런칭했다." />
+    <area shape="rect" coords="77,330,705,356" title="그들은 일반적인 개발자 품질의 우분투 워크스테이션 정도에서 처리할 수 있었다." />
+    <area shape="rect" coords="195,437,337,512" title="Node.js 프로세스 하나당 동접(?) 120,000건 넘게" />
+    <area shape="rect" coords="389,467,627,515" title="각각의 연결이 약 2k 메모리를 소비하는(?)" />
+    <area shape="rect" coords="121,684,253,732" title="네트워크 멀티플레이어 게임" />
+    <area shape="rect" coords="280,683,429,730" title="대화식의 웹사이트와 도구" />
+    <area shape="rect" coords="458,684,566,708" title="웹 분석" />
+    <area shape="rect" coords="611,684,704,729" title="온라인 채팅 시스템" />
+    <area shape="rect" coords="47,798,731,863" title="왜 Node.js를 거부할 수 없는가" />
+    <area shape="rect" coords="49,1019,146,1043" title="JavaScript이다" />
+    <area shape="rect" coords="166,1019,318,1084" title="코드를 브라우저, 서버측 그리고 데이터베이스까지 모든 레벨에서 재사용한다." />
+    <area shape="rect" coords="344,1019,434,1086" title="활발하고 열정적인 커뮤니티" />
+    <area shape="rect" coords="470,1019,595,1063" title="성능과 확장성" />
+    <area shape="rect" coords="633,1018,718,1065" title="개발자 만족" />
+    <area shape="rect" coords="77,1145,705,1210" title="역자주-Wizard of Oz(오즈의 마법사)에서 마법사를 만나러 가는길인 “Yellow birck road”를 차용한듯 함" />
+    <area shape="rect" coords="39,1218,743,1252" title="커뮤니티가 이렇게 빨리 성장을 하면 항상 의구심을 가지게 된다." />
+    <area shape="rect" coords="134,1534,659,1587" title="하지만 웹, 모바일, 소셜 그리고 게임에서의 동적 기술의 성장은 Node.js의 밝은 미래를 보여주고 있다." />
+</map></p>
+                        </div>
+                        <hr />
+                                            
+                        <div class="row-fluid">
+                            
+                            <div class="pull-right">
+                                <a href="/post/번역]-making-http-requests-in-node-dot-j-s" class="btn btn-info">[번역] Making HTTP Requests in Node.js <i class="icon-white icon-chevron-right"></i></a>
+                            </div>
+                            
+
+                            
+                            <div class="pull-left">
+                                <a href="/post/번역]-web-scraping-in-node-dot-j-s" class="btn btn-info"><i class="icon-white icon-chevron-left"></i> [번역] Web Scraping in Node.js</a>
+                            </div>
+                            
+                        </div>
+                    
+
+                        
+    <div class="row-fluid">
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'haroo-juhoi'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+            </div>
+        </div>
+        <div class="span3">
+                
+    <div id="author" class="well">
+        <h3>About Author</h3>
+        
+                    <ul class=thumbnails>
+                        <li>
+                        <div class="thumbnail">
+                            <img src="http://www.gravatar.com/avatar/efd791b43a56754702395a4c77907982?r=pg&amp;s=128.jpg&amp;d=identicon" />
+                        </div>
+                        </li>
+                    </ul>
+                    <p>
+                        <strong>Juhoi Kim</strong><br/>
+                        blog: <a href="http://juhoi.github.io" target="_blank">http://juhoi.github.io</a><br/>
+                        twitter: <a href="http://twitter.com/ByJuhoi" target="_blank">@ByJuhoi</a><br/>
+                        github: <a href="https://github.com/juhoi" target="_blank">juhoi</a>
+                    </p>
+                    <p>
+                        <a href="https://twitter.com/ByJuhoi" class="twitter-follow-button" data-show-count="true">Follow @ByJuhoi</a>
+                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                    </p>
+                    <p>
+                        <p><strong>모든 것은 나의 선택에 달려있다.</strong></p>
+                    </p>
+        
+    </div>
+    
+                        <div id="category" class="well">
+                <ul class="nav nav-list">
+                    <li class="nav-header">Categories</li>
+                    <li class=""><a href="/category"><i class="icon-home"></i> Home</a></li>
+                    
+                    <li><a href="/category/raspberry pi"><i class="icon-book"></i> raspberry pi</a></li>
+                    
+                    <li><a href="/category/haroopress"><i class="icon-book"></i> haroopress</a></li>
+                    
+                    <li><a href="/category/node.js"><i class="icon-book"></i> node.js</a></li>
+                    
+                </ul>
+            </div>
+
+            
+<div id="recents" class="well">
+    <ul class="nav nav-list">
+        <li class="nav-header">Recent Articles</li>
+    
+        <li>
+            <a href="/post/윈도우에서-하루프레스를-dot-dot-dot">윈도우에서 하루프레스를...
+            <!--span class="label">Juhoi Kim</span--></a>
+        </li>
+    
+        <li>
+            <a href="/post/21세기형-장난감-라즈베리-파이-dot-dot-dot">21세기형 장난감, 라즈베리 파이...
+            <!--span class="label">Juhoi Kim</span--></a>
+        </li>
+    
+        <li>
+            <a href="/post/번역]-web-scraping-in-node-dot-j-s">[번역] Web Scraping in Node.js
+            <!--span class="label">Juhoi Kim</span--></a>
+        </li>
+    
+        <li>
+            <a href="/post/번역]-getting-to-know-node">[번역] Getting to Know Node
+            <!--span class="label">Juhoi Kim</span--></a>
+        </li>
+    
+        <li>
+            <a href="/post/번역]-making-http-requests-in-node-dot-j-s">[번역] Making HTTP Requests in Node.js
+            <!--span class="label">Juhoi Kim</span--></a>
+        </li>
+    
+    </ul>
+</div>
+
+        </div>
+    </div>
+    <!--<div class="row">-->
+        <!--<div class="offset3 span9">-->
+            <!--<strong>tags</strong> :-->
+            <!---->
+            <!--<a href="/tag/node">node</a>&nbsp;-->
+            <!---->
+            <!--<a href="/tag/node.js">node.js</a>&nbsp;-->
+            <!---->
+        <!--</div>-->
+    <!--</div>-->
+</div><!-- /container -->
+
+
+        <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="span12">
+                    <div class="well">
+                        <p class="pull-right"><a href="#">Back to top</a></p>
+                            <strong>haroopress</strong> developed by <a href="http://twitter.com/rhiokim" target="_blank">@rhiokim</a>,<a href="http://twitter.com/haroopress" target="_blank">@haroopress</a> and source in <a href="https://github.com/rhiokim/haroopress" target="_blank">github</a><br/>
+                            Designed and built with all the love in the world <a href="http://twitter.com/twitter" target="_blank">@twitter</a> by <a href="http://twitter.com/mdo" target="_blank">@mdo</a> and <a href="http://twitter.com/fat" target="_blank">@fat</a>.<br />
+                            Code licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License v2.0</a>. Documentation licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-36737619-1']);
+            _gaq.push(['_trackPageview']);
+
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+
+
+</body>
+</html>
